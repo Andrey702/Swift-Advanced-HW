@@ -55,3 +55,5 @@ func formulaTwo(a: Double, b: Double) -> Double { return (a * b) / 30 }
 func science(w: Double, l: Double, formula: (Double, Double) -> Double) {
     print(formula(w,l))
 }
+
+
