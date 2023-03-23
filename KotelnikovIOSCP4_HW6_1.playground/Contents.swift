@@ -2,6 +2,7 @@
 import Foundation
 
 /*
+ 
 Задача 1
 
  История:
@@ -16,29 +17,36 @@ import Foundation
 Написать два замыкания (тип указан выше). Внутри должна быть математическая операция (на ваш выбор) над входящими значениями.
 Вызвать функцию для первого замыкания и потом для второго замыкания.
 Выполнить задание, не сокращая синтаксис языка.
-*/
+ 
+ */
 
 
-let formulaOne: (Double,Double) -> Double = {( weight: Double, length: Double ) -> Double in
-    return (weight * length) / 20
-}
+func calculateFuelConsumption ( weight kg: Double, length km: Double, _ calculate : (Double, Double) ->  Double ) -> Double {
+        let result = calculate(kg, km)
+        print("результат - \(result) м³")
+        return result
+        
+    }
+// первое замыкание
+    let formulaOne = {( weight: Double, length: Double ) -> Double in
+        return (weight * length) / 20    }
+   
+// второе замыкание
+    let formulaTwo = {( weight: Double, length: Double ) -> Double in
+        return (weight * length) / 30
+    }
+    
 
-let formulaTwo: (Double,Double) -> Double = {( weight: Double, length: Double ) -> Double in
-    return (weight * length) / 30
-}
-
-func science(weight: Double, length: Double, formula: (Double, Double) -> Double) {
-    print(formula(weight,length))
-}
-
-science(weight: 5412.2, length: 1547.20, formula: formulaOne)
+calculateFuelConsumption(weight: 400, length: 400, formulaOne)
+calculateFuelConsumption(weight: 200, length: 200, formulaTwo)
 
 
 /*
- 
+
  Задача 2
 
  История:
+ 
  В вашем конструкторском бюро случилось ЧП и все компьютеры вышли из строя, но последние алгоритмы вы помните. Вы намерены добраться до ближайшего компьютера в соседнем селе и восстановить из своей памяти нужные данные. Ваша задача запомнить максимально краткую форму записи алгоритмов, чтобы все не смешалось в голове.
 
  Алгоритм выполнения
@@ -48,12 +56,13 @@ science(weight: 5412.2, length: 1547.20, formula: formulaOne)
  */
 
 
-func formulaOne(a: Double, b: Double) -> Double { return (a * b) / 20 }
-
-func formulaTwo(a: Double, b: Double) -> Double { return (a * b) / 30 }
-
-func science(w: Double, l: Double, formula: (Double, Double) -> Double) {
-    print(formula(w,l))
-}
+// первое замыкание
+    
+let abbreviatedFormulOne: (Double, Double) -> Double = { ($0 * $1) / 20 }
 
 
+// второе замыкание
+let abbreviatedFormulaTwo: (Double, Double) -> Double = { ($0 * $1) / 30 }
+
+calculateFuelConsumption(weight: 400, length: 400, abbreviatedFormulOne)
+calculateFuelConsumption(weight: 200, length: 200, abbreviatedFormulaTwo)
