@@ -69,6 +69,9 @@ final class ArtistOne: Artist {
         super.init(name: name, country: country, genre: genre, trackName: trackName)
     }
     
+    func foundation() {
+        print(yearOfFoundation)
+    }
     
     override func writeATrack() {
         print("Я \(name) написал трек \(trackName) в \(yearOfFoundation) году")
@@ -90,6 +93,9 @@ final class ArtistTwo: Artist {
         super.init(name: name, country: country, genre: genre, trackName: trackName)
     }
     
+    func concertsPlayed() {
+        print(numberOfConcertsPlayed)
+    }
     
     override func writeATrack() {
         print("Я \(name) написал трек \(trackName) в \(numberOfConcertsPlayed) году")
@@ -111,6 +117,9 @@ final class ArtistThree: Artist {
         super.init(name: name, country: country, genre: genre, trackName: trackName)
     }
     
+    func ageOfArtist() {
+        print(ageOfTheArtist)
+    }
     
     override func writeATrack() {
         print("Я \(name) написал свой первый трек \(trackName) еще в \(ageOfTheArtist)")
@@ -121,3 +130,4 @@ final class ArtistThree: Artist {
     }
     
 }
+
